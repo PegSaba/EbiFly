@@ -36,6 +36,7 @@ public class MainConfig {
     public final boolean restrictGamemode;
     public final Boolean restrictLevitation;
     public final Boolean restrictWater;
+    public final float restrictFlySpeed;
 
     public final EconomyConfig economy;
 
@@ -69,6 +70,7 @@ public class MainConfig {
         restrictGamemode = config.getBoolean("restrict.gamemode");
         restrictLevitation = triple(config.getString("restrict.levitation"), "temporary");
         restrictWater = triple(config.getString("restrict.water"), "temporary");
+        restrictFlySpeed = (float) config.getDouble("restrict.flyspeed", 1.0);
 
         if (config.getBoolean("economy.enable")) {
             var e = new EconomyConfig(getSection(logger, config, "economy"));

@@ -21,6 +21,7 @@ restrict:
   # Due to Bukkit's limitations, this feature calls many events.
   # Disable this feature if you need to keep the best performance. (This load is usually not an issue.)
   water: false
+  flyspeed: 0.1 # Default: 0.1
 
 # Vault required.
 economy:
@@ -100,4 +101,4 @@ locale:
 
 
 # Don't touch!
-version: 2
+version: 2.1

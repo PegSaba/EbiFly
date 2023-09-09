@@ -6,7 +6,7 @@
 
     <groupId>jp.jyn</groupId>
     <artifactId>EbiFly</artifactId>
-    <version>2.0.0</version>
+    <version>2.1.0</version>
     <description>Economy Billing Fly Plugin for Bukkit</description>
     <url>https://github.com/HimaJyun/EbiFly</url>
     <properties>
@@ -20,6 +20,10 @@
         <developer>
             <id>HimaJyun</id>
             <url>https://jyn.jp/</url>
+        </developer>
+        <developer>
+            <id>mk499490</id>
+            <url>https://peg.osaka/</url>
         </developer>
     </developers>
     <licenses>

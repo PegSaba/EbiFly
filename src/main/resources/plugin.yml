@@ -1,8 +1,8 @@
 main: "jp.jyn.ebifly.PluginMain"
-name: "EbiFly"
+name: "PegSaba-EbiFly"
 version: "${project.version}"
 website: "${project.url}"
-author: "HimaJyun( https://jyn.jp/ )"
+author: "HimaJyun( https://jyn.jp/ ), mk499490( https://mc.peg.osaka )"
 description: "${project.description}"
 softdepend: [ "Vault" ]
 api-version: "1.17"

@@ -15,6 +15,7 @@ import org.bukkit.event.entity.EntityPotionEffectEvent;
 import org.bukkit.event.player.PlayerChangedWorldEvent;
 import org.bukkit.event.player.PlayerGameModeChangeEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
+import org.bukkit.event.player.PlayerToggleFlightEvent;
 import org.bukkit.potion.PotionEffectType;
 
 import java.util.function.Consumer;
@@ -26,12 +27,14 @@ public class RestrictListener implements Listener {
     private final boolean waterStop;
     private final Consumer<Runnable> syncCall;
     private final Consumer<Player> levitationHandler;
+    private final MainConfig config;
 
     public RestrictListener(PluginMain plugin, MainConfig config, FlyRepository fly,
                             Consumer<Runnable> syncCall, Consumer<Player> levitationHandler) {
         this.fly = fly;
         this.syncCall = syncCall;
         this.levitationHandler = levitationHandler;
+        this.config = config;
 
         Bukkit.getServer().getPluginManager().registerEvents(this, plugin);
         // 必要ない物をアンロード
@@ -49,6 +52,9 @@ public class RestrictListener implements Listener {
         }
         if (config.restrictWater == null) {
             EntityAirChangeEvent.getHandlerList().unregister(this);
+        }
+        if (config.restrictFlySpeed == 0.1) {
+            PlayerToggleFlightEvent.getHandlerList().unregister(this);
         }
 
         // nullの時は使わない
@@ -160,6 +166,13 @@ public class RestrictListener implements Listener {
             // Entity#isInWaterは足が浸かってたらtrueになる == 水面で息継ぎするとイベント出なくなって戻せなくなる
             // 減ってる == 水中 / 増えてる == 水上
             p.setAllowFlight(e.getAmount() >= p.getRemainingAir());
+        }
+    }
+
+    @EventHandler(ignoreCancelled = true, priority = EventPriority.MONITOR)
+    public final void onFly(PlayerToggleFlightEvent e) {
+        if (fly.isFlying(e.getPlayer())) {
+            e.getPlayer().setFlySpeed(config.restrictFlySpeed);
         }
     }
 }

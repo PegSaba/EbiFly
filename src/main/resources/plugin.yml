@@ -2,7 +2,7 @@ main: "jp.jyn.ebifly.PluginMain"
 name: "EbiFly"
 version: "${project.version}"
 website: "${project.url}"
-author: "HimaJyun( https://jyn.jp/ ), mk499490( https://mc.peg.osaka )"
+author: "HimaJyun( https://jyn.jp/ ), mk499490( https://peg.osaka )"
 description: "${project.description}"
 softdepend: [ "Vault" ]
 api-version: "1.17"

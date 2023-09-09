@@ -1,5 +1,5 @@
 main: "jp.jyn.ebifly.PluginMain"
-name: "PegSaba-EbiFly"
+name: "EbiFly"
 version: "${project.version}"
 website: "${project.url}"
 author: "HimaJyun( https://jyn.jp/ ), mk499490( https://mc.peg.osaka )"
